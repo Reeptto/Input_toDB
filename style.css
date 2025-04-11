@@ -1,0 +1,149 @@
+*,html {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+h2 {
+    text-align: center;
+}
+
+.input-data {
+    background: linear-gradient(to bottom right, navy, black);
+    width: 50%;
+    border-radius: 10px;
+    padding: 20px;
+    color: azure;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin: 50px auto;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.6);
+}
+
+form {
+    width: 100%;
+}
+
+.form-container {
+    width: 400px;
+    margin: auto;
+    margin-top: 20px;
+    font-family: 'poppins', sans-serif;
+  }
+  
+  .form-group {
+    display: flex;
+    justify-content: flex-start;
+    margin-bottom: 15px;
+    gap: 10px;
+  }
+  
+  .form-group label {
+    width: 130px;
+    font-weight: 40px;
+  }
+  
+  .form-group input {
+    flex: 1;
+    padding: 5px;
+    border-radius: 6px;
+  }
+
+  input:focus {
+    box-shadow: 0 0 10px rgba(0, 191, 255, 0.7); 
+  }
+
+ button{
+    background: black;
+    color: azure;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all .2s ease;
+    font-family: 'poppins', sans-serif;
+
+}
+
+button:hover {
+    background:  black;
+    box-shadow: 0 0 15px rgba(0, 191, 255, 0.7);
+}
+
+h3 {
+    font-family: 'poppins', sans-serif;
+    font-size: x-large;
+}
+
+table {
+    width: 90%;
+    margin: 20px auto;
+    border-collapse: collapse;
+    font-family: 'poppins', sans-serif;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+    border-radius: 10px;
+}
+
+th {
+    background: linear-gradient(to right, #003366, #000000);
+    color: white;
+    padding: 12px 15px;
+    text-align: center;
+    font-size: 1.1rem;
+}
+
+td {
+    padding: 10px 15px;
+    border: 1px solid #ccc;
+    text-align: center;
+    background-color: #f9f9f9;
+}
+
+tr:nth-child(even) td {
+    background-color: #e6f0ff;
+}
+
+tr:hover td {
+    background-color: #d0e7ff;
+    transition: 0.3s ease-in-out;
+}
+
+@media screen and (max-width: 768px) {
+    table {
+        width: 100%;
+        font-size: 0.9rem;
+    }
+
+    th, td {
+        padding: 8px 10px;
+    }
+
+    .input-data {
+        width: 90%;
+        padding: 20px 10px;
+    }
+
+    form input,
+    form input[type="date"],
+    form textarea {
+        width: 100%;
+    }
+
+    form label {
+        display: block;
+        margin-bottom: 5px;
+    }
+
+    form div {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        margin-bottom: 15px;
+    }
+
+    input[type="submit"] {
+        align-self: center;
+    }
+}
