@@ -1,0 +1,72 @@
+<!doctype html>
+<?php 
+    session_start();
+    include "../koneksi.php";
+
+    if (isset($_POST['submit'])) {
+      $nama           = $_POST['nama'];
+      $nipd           = $_POST['nipd'];
+      $tanggal_lahir  = $_POST['tanggal_lahir'];
+      $alamat         = $_POST['alamat'];
+
+      $sql = "INSERT INTO mhs (nama_mhs,nipd,tgl_Lahir,alamat) VALUES('$nama','$nipd','$tanggal_lahir','$alamat')";
+
+      if ($conn->query($sql) === TRUE) {
+          $_SESSION['alert'] = "<div class='alert alert-success alert-dismissible fade show' role='alert'>
+                                  Data berhasil di Tambah!
+                                  <button type='button' class='btn-close' data-bs-dismiss='alert' aria-label='Close'></button>
+                                </div>";
+          $conn->close();
+          header("Location: tampilDatamhs.php");
+          exit();
+      } else {
+          $_SESSION['alert'] = "<div class='alert alert-danger alert-dismissible fade show' role='alert'>
+                                  Error: ".$sql." - " . $conn->error . "
+                                  <button type='button' class='btn-close' data-bs-dismiss='alert' aria-label='Close'></button>
+                                </div>";
+          $conn->close();
+          header("Location: tampilDatamhs.php");
+          exit();
+      }
+    }
+?>
+    <?php include "../header.php"; ?>
+
+      <!-- Header dengan Logout -->
+      <div class="header">
+        <h4>Tambah Data Mahasiswa ASE10</h4>
+      </div>
+
+        <div class="content" style="margin-top: 70px;">
+            <form action="" method="POST" class="border p-4 rounded shadow">
+              <div class="mb-3">
+                <label for="" class="form-label">Nama</label>
+                <input type="text" for="" name="nama" class="form-control" required>
+              </div>
+
+              <div class="mb-3">
+                <label for="" class="form-label">NIPD</label>
+                <input type="text" for="" name="nipd" class="form-control" maxlength="12" required>
+              </div>
+
+              <div class="mb-3">
+                <label for="" class="form-label">Tanggal Lahir</label>
+                <input type="date" for="" name="tanggal_lahir" class="form-control" max="2006-12-31" required>
+              </div>
+
+              <div class="mb-3">
+                <label for="" class="form-label">Alamat</label>
+                <textarea name="alamat" id="" col="3" class="form-control" required></textarea>
+              </div>
+
+              <div class="row">
+                <div class="col-8"></div> <!-- Div kosong di sebelah kiri -->
+                <div class="col-4 text-end"> <!-- Div berisi tombol di sebelah kanan -->
+                    <button type="submit" class="btn btn-primary mb-3" name="submit">Tambah Data</button>
+                    <button type="button" class="btn btn-secondary mb-3" onclick="window.history.back()">Kembali</button>
+                </div>
+              </div>
+            </form>
+        </div>
+
+    <?php include "../footer.php"; ?>
